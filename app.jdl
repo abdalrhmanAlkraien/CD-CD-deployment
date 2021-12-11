@@ -1,0 +1,84 @@
+application {
+  config {
+    baseName GatewayService
+    applicationType gateway
+    packageName asc.foods.gateway
+    serverPort 8080
+    authenticationType oauth2
+    devDatabaseType mysql
+    prodDatabaseType mysql
+    cacheProvider ehcache
+    messageBroker kafka
+    serviceDiscoveryType eureka
+    websocket spring-websocket
+    clientFramework angularX
+    clientTheme yeti
+    languages [en, fr, es, ar-ly]
+  }
+}
+
+application {
+  config {
+    baseName StoreService
+    applicationType microservice
+    packageName asc.foods.store
+    serverPort 8081
+    authenticationType oauth2
+    devDatabaseType mysql
+    prodDatabaseType mysql
+    cacheProvider ehcache
+    messageBroker kafka
+    serviceDiscoveryType eureka
+    
+    languages [en, fr, es, ar-ly]
+  }
+  entities *
+}
+
+
+
+entity StoreType{
+	type String
+    imageUrl String
+    description String
+    creationDate Instant
+    createdBy String
+    cardColor String
+    backgroundImage String
+}
+
+entity AscStore {
+    name String
+    adVideoUrl String
+    storeImageUrl String
+    coverImageUrl String
+    averageRating Double
+    totalRating Long
+    creationDate Instant
+    createdBy String
+    hasFavorite Boolean
+    minOrder Long
+    delivery Double
+    description String
+    priceRange PriceRange
+}
+
+enum PriceRange{
+    NONE, CHEAP, MODERATE, EXPENSIVE, SPLURGE
+}
+
+relationship OneToMany {
+    StoreType to AscStore{store}
+}
+
+
+
+paginate AscStore with pagination
+
+// Use Data Transfer Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceClass
+
+

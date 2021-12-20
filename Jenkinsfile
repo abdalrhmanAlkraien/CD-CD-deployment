@@ -4,6 +4,7 @@ pipeline{
         DOCKER_LOGIN = credentials('DockerLoginId')
         DOCKER_USERNAME='altshiftcreative'
         DOCKER_PwD='AltShift@124'
+        SERVER_PwD='root@124Asc'
     }
     stages{
         stage ('init'){
@@ -31,6 +32,13 @@ pipeline{
                 echo 'run hello world image'
                 sh 'docker run hello-world'
                 echo 'running hello world image success'
+            }
+        }
+        stage ('login server'){
+            steps{
+                echo 'login server'
+                sh 'ssh -l root 206.189.178.228 -p ${SERVER_PwD}'
+                echo 'login server success'
             }
         }
     }

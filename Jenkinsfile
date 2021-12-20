@@ -13,7 +13,8 @@ pipeline{
             steps{
                 echo 'will login in docker'
                 sh "${DOCKER_LOGIN}"
-                echo 'docker login is success
+                echo 'docker login is success'
+                sh 'docker images'
             }
         }
     }

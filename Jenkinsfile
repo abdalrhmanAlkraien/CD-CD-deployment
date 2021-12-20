@@ -1,6 +1,6 @@
 pipeline{
     agent any
-    enviroment{
+    environment{
         IMAGE_VERSION=${IMAGE_VERSION}
         DOCKER_CREDENTIAL=credentials('')
     }

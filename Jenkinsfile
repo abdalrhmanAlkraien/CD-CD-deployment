@@ -1,7 +1,7 @@
 pipeline{
     agent any
     parameters{
-        booleanParam(name: 'executeTest',defaultValue: false,description: '')
+        booleanParam(name: 'executeTest',defaultValue: true,description: '')
     }
           
     stages{
@@ -13,7 +13,7 @@ pipeline{
         stage('tow'){
             when{
                 expression{
-                   params.executeTest == true 
+                   params.executeTest == false 
                 }
             }
             steps{

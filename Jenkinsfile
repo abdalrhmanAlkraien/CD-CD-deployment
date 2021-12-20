@@ -12,16 +12,5 @@ pipeline{
                 echo "${returnValue}"
             }
         }
-        stage{
-            steps ('image version'){
-                echo 'image version ${IMAGE_VERSION}'
-            }
-        }
-        stage ('docker login'){
-            steps{
-                echo 'image version ${IMAGE_VERSION}'
-                sh "${DOCKER_CREDENTIAL}"
-            }
-        }
     }
 }

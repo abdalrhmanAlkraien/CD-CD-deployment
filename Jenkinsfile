@@ -14,7 +14,7 @@ pipeline{
         stage('login docker'){
             steps{
                 echo 'will login in docker'
-                sh "docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PwD}"
+                sh "winpty docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PwD}"
                 echo 'docker login is success'
 //                 sh 'docker images'
             }

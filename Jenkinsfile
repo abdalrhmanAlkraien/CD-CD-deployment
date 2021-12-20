@@ -1,35 +1,29 @@
 pipeline{
     agent any
-    parameters{
-        booleanParam(name: 'executeTest',defaultValue: false,description: '')
+    enviroment{
+        IMAGE_VERSION=${IMAGE_VERSION}
+        DOCKER_CREDENTIAL=credentials('')
     }
-          
     stages{
-        stage ('one'){
+        stage ('init'){
             steps{
-                echo 'stage one is build'
-            }
-        }
-        stage('tow'){
-            when{
-                expression{
-                   params.executeTest == false 
+                script{
+                    def returnValue = input message: 'Need some input'
                 }
+                echo 'build Store image and up to server'
+                echo "${returnValue}"
             }
+        }
+        stage{
+            steps ('image version'){
+                echo 'image version ${IMAGE_VERSION}'
+            }
+        }
+        stage ('docker login'){
             steps{
-                echo 'building stage here'
+                echo 'image version ${IMAGE_VERSION}'
+                sh "${DOCKER_CREDENTIAL}"
             }
-        }
-    }
-    post{
-        always{
-            echo 'i will print Hello always again'
-        }
-        success{
-            echo ' if the sucess build i will say Hello'
-        }
-        failure{
-            echo ' if the failure build i will say failure'
         }
     }
 }

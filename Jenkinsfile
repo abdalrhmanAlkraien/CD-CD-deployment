@@ -1,9 +1,23 @@
 pipeline{
     agent any
+    parameters{
+        booleanParam(name: 'executeTest',defaultValue: true,description: '')
+    }
+          
     stages{
         stage ('one'){
             steps{
                 echo 'stage one is build'
+            }
+        }
+        stage('tow'){
+            when{
+                expression{
+                   params.executeTest == true 
+                }
+            }
+            steps{
+                echo 'building stage here'
             }
         }
     }

@@ -14,7 +14,7 @@ pipeline{
                     env.DOCKER_VERSION=dockerVersion
                 }
                 echo 'load script file success'
-                echo "${DOCKER_VERSION}"
+                echo "${env.DOCKER_VERSION}"
             }
         }
     }

@@ -14,7 +14,7 @@ pipeline{
                 echo 'will login in docker'
                 sh "docker login ${DOCKER_LOGIN}"
                 echo 'docker login is success'
-                sh 'docker images'
+//                 sh 'docker images'
             }
         }
     }

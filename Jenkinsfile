@@ -1,7 +1,7 @@
 pipeline{
     agent any
     environment{
-        DOCKER_VERSION = ''
+        DOCKER_LOGIN = credentials('DockerLoginId')
     }
     stages{
         stage ('init'){
@@ -11,7 +11,9 @@ pipeline{
         }
         stage('login docker'){
             steps{
-            echo 'will login in docker'
+                echo 'will login in docker'
+                sh "${DOCKER_LOGIN}"
+                echo 'docker login is success
             }
         }
     }

@@ -19,5 +19,19 @@ pipeline{
 //                 sh 'docker images'
             }
         }
+        stage ('pull hello world image'){
+            steps{
+                echo 'docker build hello world'
+                sh 'docker pull hello-world'
+                echo ' build success'
+            }
+        }
+        stage ('run hello world image'){
+            steps{
+                echo 'run hello world image'
+                sh 'docker run hello-world'
+                echo 'running hello world image success'
+            }
+        }
     }
 }

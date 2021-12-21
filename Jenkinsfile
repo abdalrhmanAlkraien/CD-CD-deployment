@@ -4,7 +4,7 @@ pipeline{
         DOCKER_LOGIN = credentials('DockerLoginId')
         DOCKER_USERNAME='altshiftcreative'
         //DOCKER_PwD='AltShift@124'
-        SERVER_PwD='root@124Asc'
+        //SERVER_PwD='root@124Asc'
         init_enviroment=false
     }
     stages{
@@ -18,7 +18,7 @@ pipeline{
                 echo 'will login in docker'
                 sh "docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PwD}"
                 echo 'docker login is success'
-                echo "${init_enviroment}'
+                echo "${init_enviroment}"
 //                 sh 'docker images'
             }
         }

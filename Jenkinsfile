@@ -37,7 +37,7 @@ pipeline{
         stage ('login server'){
             steps{
                 echo 'login server'
-                sh 'ssh root@135.181.203.3'
+                sh 'ssh -tt root@135.181.203.3'
                 echo 'login server success'
             }
         }

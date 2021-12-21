@@ -3,7 +3,7 @@ pipeline{
     environment{
         DOCKER_LOGIN = credentials('DockerLoginId')
         DOCKER_USERNAME='altshiftcreative'
-        DOCKER_PwD='AltShift@124'
+        //DOCKER_PwD='AltShift@124'
         SERVER_PwD='root@124Asc'
         init_enviroment=false
     }

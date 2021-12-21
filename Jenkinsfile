@@ -24,7 +24,7 @@ pipeline{
         stage('init enviroment'){
             when{
                 expression{
-                    ${init_enviroment}==true
+                    "${init_enviroment}"==true
                 }
             }
             steps{

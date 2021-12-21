@@ -23,8 +23,9 @@ pipeline{
         }
         stage('init enviroment'){
             when{
-                ${init_enviroment}==true
-
+                expression{
+                    ${init_enviroment}==true
+                }
             }
             steps{
                 echo 'login server for initial enviroment'

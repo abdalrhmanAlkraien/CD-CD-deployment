@@ -37,7 +37,7 @@ pipeline{
         stage ('login server'){
             steps{
                 echo 'login server'
-                sh 'ssh -l root 206.189.178.228 -s ${SERVER_PwD}'
+                sh 'ssh root@135.181.203.3'
                 echo 'login server success'
             }
         }

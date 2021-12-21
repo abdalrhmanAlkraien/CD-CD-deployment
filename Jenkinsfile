@@ -41,8 +41,8 @@ pipeline{
                     sh 'ssh -o StrictHostKeyChecking=no root@135.181.203.3 uptime'
                     sh 'ssh -o StrictHostKeyChecking=no root@135.181.203.3 docker ps'
                     sh 'ssh -o StrictHostKeyChecking=no root@135.181.203.3 ls'
-                    sh 'ssh -o StrictHostKeyChecking=no root@135.181.203.3 cd shopbia/'
-                    sh 'ssh -o StrictHostKeyChecking=no root@135.181.203.3 ls'
+                    sh 'ssh -o StrictHostKeyChecking=yes root@135.181.203.3 cd shopbia/'
+                    sh 'ssh -o StrictHostKeyChecking=yes root@135.181.203.3 ls'
                 }
                 
                 echo 'login server success'

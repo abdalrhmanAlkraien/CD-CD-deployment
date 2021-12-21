@@ -39,7 +39,7 @@ pipeline{
                 echo 'login server'
                 sshagent(credentials:['Jenk-Id']){
                     sh 'ssh -o StrictHostKeyChecking=no root@135.181.203.3 uptime'
-                    sh 'ssh docker ps'
+                    sh 'ssh -o StrictHostKeyChecking=no root@135.181.203.3 docker ps'
                 }
                 
                 echo 'login server success'

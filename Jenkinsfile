@@ -38,7 +38,7 @@ pipeline{
             steps{
                 echo 'login server'
                 sshagent(credentials:['Jenk-Id']){
-                    sh 'ssh -o StrictHostKeyChecking=no root@iotdev.altshiftcreative.net uptime'
+                    sh 'ssh -o StrictHostKeyChecking=no root@135.181.203.3 uptime'
                 }
                 
                 echo 'login server success'

@@ -37,33 +37,5 @@ pipeline{
                 }
             }
         }
-        stage ('pull hello world image'){
-            steps{
-                echo 'docker build hello world'
-                sh 'docker pull hello-world'
-                echo ' build success'
-            }
-        }
-        stage ('run hello world image'){
-            steps{
-                echo 'run hello world image'
-                sh 'docker run hello-world'
-                echo 'running hello world image success'
-            }
-        }
-        stage ('login server'){
-            steps{
-                echo 'login server'
-                sshagent(credentials:['Jenk-Id']){
-                    sh 'ssh -o StrictHostKeyChecking=no root@135.181.203.3 uptime "cd root/shopbia/; ls ; docker ps;'
-                    sh 'ssh -o StrictHostKeyChecking=no root@135.181.203.3 docker ps'
-                    sh 'ssh -o StrictHostKeyChecking=no root@135.181.203.3 ls'
-                    sh 'ssh -o StrictHostKeyChecking=yes root@135.181.203.3 cd shopbia/'
-                    sh 'ssh -o StrictHostKeyChecking=yes root@135.181.203.3 ls'
-                }
-                
-                echo 'login server success'
-            }
-        }
     }
 }

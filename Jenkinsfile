@@ -5,7 +5,7 @@ pipeline{
         DOCKER_USERNAME='altshiftcreative'
         //DOCKER_PwD='AltShift@124'
         //SERVER_PwD='root@124Asc'
-        init_enviroment=false
+
     }
     stages{
         stage ('init'){

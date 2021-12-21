@@ -19,10 +19,9 @@ pipeline{
                 sh "docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PwD}"
                 echo 'docker login is success'
                 echo "${init_enviroment}"
-//                 sh 'docker images'
             }
         }
-        stage(){
+        stage('init enviroment'){
             when{
                 ${init_enviroment}
             }
